@@ -21,3 +21,5 @@ class Transaction(models.Model):
     store_name = models.CharField(max_length=255)
     transaction_type = models.ForeignKey(
         "transactions.TransactionType", on_delete=models.CASCADE, related_name="transactions")
+    user = models.ForeignKey(
+        'users.User', on_delete=models.CASCADE, related_name='transactions')
