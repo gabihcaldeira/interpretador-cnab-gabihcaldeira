@@ -4,6 +4,6 @@ from . import views
 
 urlpatterns = [
     path("users/", views.ListCreateUserView.as_view()),
-    path("users/<str:pk>/", views.RetrieveUpdateDestroyUserView.as_view()),
+    path("users/<str:pk>/", views.UpdateDestroyUserView.as_view()),
     path("login/", TokenObtainPairView.as_view())
 ]
