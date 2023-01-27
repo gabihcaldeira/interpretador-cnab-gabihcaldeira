@@ -2,43 +2,43 @@
   {
     "model": "transactions.transactiontype",
     "pk": 1,
-    "fields": { "description": "Débito", "kind": "Entrada", "sign": "+" }
+    "fields": { "description": "Débito", "kind": "IN", "sign": "+" }
   },
   {
     "model": "transactions.transactiontype",
     "pk": 2,
-    "fields": { "description": "Boleto", "kind": "Saída", "sign": "-" }
+    "fields": { "description": "Boleto", "kind": "OUT", "sign": "-" }
   },
   {
     "model": "transactions.transactiontype",
     "pk": 3,
-    "fields": { "description": "Financiamento", "kind": "Saída", "sign": "-" }
+    "fields": { "description": "Financiamento", "kind": "OUT", "sign": "-" }
   },
   {
     "model": "transactions.transactiontype",
     "pk": 4,
-    "fields": { "description": "Crédito", "kind": "Entrada", "sign": "+" }
+    "fields": { "description": "Crédito", "kind": "IN", "sign": "+" }
   },
   {
     "model": "transactions.transactiontype",
     "pk": 5,
     "fields": {
       "description": "Recebimento Emprestimo",
-      "kind": "Entrada",
+      "kind": "IN",
       "sign": "+"
     }
   },
   {
     "model": "transactions.transactiontype",
     "pk": 6,
-    "fields": { "description": "Vendas", "kind": "Entrada", "sign": "+" }
+    "fields": { "description": "Vendas", "kind": "IN", "sign": "+" }
   },
   {
     "model": "transactions.transactiontype",
     "pk": 7,
     "fields": {
       "description": "Recebimento TED",
-      "kind": "Entrada",
+      "kind": "IN",
       "sign": "+"
     }
   },
@@ -47,13 +47,13 @@
     "pk": 8,
     "fields": {
       "description": "Recebimento DOC",
-      "kind": "Entrada",
+      "kind": "IN",
       "sign": "+"
     }
   },
   {
     "model": "transactions.transactiontype",
     "pk": 9,
-    "fields": { "description": "Aluguel", "kind": "Saída", "sign": "-" }
+    "fields": { "description": "Aluguel", "kind": "OUT", "sign": "-" }
   }
 ]
