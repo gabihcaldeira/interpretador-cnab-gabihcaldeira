@@ -7,13 +7,27 @@ from rest_framework.permissions import IsAuthenticated
 from django.db.models import Sum
 from decimal import Decimal
 from datetime import datetime
+import ipdb
 
 
-class CreateTransactionView(APIView):
+class CreateTransactionView(ListCreateAPIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
+    queryset = Transaction
+    serializer_class = TransactionSerializer
+
+    def perform_create(self, serializer):
+        return serializer.save(user_id=self.request.user.id)
+
+
+class Teste(APIView):
+    authentication_classes = [JWTAuthentication]
+    permission_classes = [IsAuthenticated]
+    queryset = Transaction
+    serializer_class = TransactionSerializer
 
     def post(self, request: Request) -> Response:
+
         file_request = request.FILES['file']
         lines_list = [line.decode('utf-8').rstrip() for line in file_request]
         request_data = []
@@ -31,7 +45,7 @@ class CreateTransactionView(APIView):
             }
             request_data.append(line_data)
 
-        serializer = TransactionSerializer(data=request_data, many=True)
+        serializer = TransactionSerializer(data=request.data, many=True)
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
@@ -66,7 +80,7 @@ class TransactionsByStoreView(APIView):
         return Response(data, status.HTTP_200_OK)
 
 
-class ListTransactionTypes(ListCreateAPIView):
+class ListTransactionTypes(ListAPIView):
     queryset = TransactionType.objects.all()
     serializer_class = TransactionTypeSerializer
     authentication_classes = [JWTAuthentication]
