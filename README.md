@@ -28,7 +28,7 @@
 
   3. depois é só instalar as dependências e rodar a api:
 
-  `pip install -r requirements.txt`
+  `pip install -r requirements.txt`<br>
   `TEST=TEST ./manage.py migrate`<br>
   `TEST=TEST .manage.py runserver`
 
