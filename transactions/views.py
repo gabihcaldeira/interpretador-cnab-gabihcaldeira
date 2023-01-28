@@ -1,7 +1,7 @@
 from rest_framework.views import APIView, Request, Response, status
-from rest_framework.generics import ListAPIView, ListCreateAPIView
+from rest_framework.generics import ListAPIView, CreateAPIView
 from .models import TransactionType, Transaction
-from .serializers import TransactionTypeSerializer, TransactionSerializer
+from .serializers import TransactionTypeSerializer, TransactionSerializer, ReturnTransactionsSerializer
 from rest_framework_simplejwt.authentication import JWTAuthentication
 from rest_framework.permissions import IsAuthenticated
 from django.db.models import Sum
@@ -10,51 +10,25 @@ from datetime import datetime
 import ipdb
 
 
-class CreateTransactionView(ListCreateAPIView):
+class CreateTransactionView(CreateAPIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
-    queryset = Transaction
+    queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
 
     def perform_create(self, serializer):
-        return serializer.save(user_id=self.request.user.id)
+        serializer.save(user_id=self.request.user.id)
 
 
-class Teste(APIView):
+class ListTransactionsView(ListAPIView):
     authentication_classes = [JWTAuthentication]
     permission_classes = [IsAuthenticated]
-    queryset = Transaction
-    serializer_class = TransactionSerializer
+    queryset = Transaction.objects.all()
+    serializer_class = ReturnTransactionsSerializer
 
-    def post(self, request: Request) -> Response:
-
-        file_request = request.FILES['file']
-        lines_list = [line.decode('utf-8').rstrip() for line in file_request]
-        request_data = []
-        for line in lines_list:
-            line_data = {
-                'transaction_type': line[0],
-                'date': datetime.strptime(line[1:9], "%Y%m%d").date(),
-                'value': Decimal(line[9:19])/Decimal('100.00'),
-                'cpf': line[19:30],
-                'card': line[30:42],
-                'time': datetime.strptime(line[42:48], "%H%M%S").time(),
-                'store_owner': line[48:62].rstrip(),
-                'store_name': line[62:81],
-                'user': request.user.id
-            }
-            request_data.append(line_data)
-
-        serializer = TransactionSerializer(data=request.data, many=True)
-        serializer.is_valid(raise_exception=True)
-        serializer.save()
-
-        return Response(serializer.data, status.HTTP_201_CREATED)
-
-    def get(self, request: Request) -> Response:
-        transactions_list = Transaction.objects.filter(user_id=request.user.id)
-        serializer = TransactionSerializer(transactions_list, many=True)
-        return Response(serializer.data, status.HTTP_200_OK)
+    def get_queryset(self):
+        queryset = Transaction.objects.filter(user_id=self.request.user.id)
+        return queryset
 
 
 class TransactionsByStoreView(APIView):
