@@ -26,7 +26,7 @@
        `python -m venv venv`<br>
        `.\venv\Scripts\activate`
 
-  4. depois é só instalar as dependências e rodar a api:
+  4. depois é só instalar as dependências e rodar a api:<br>
      `pip install -r requirements.txt`<br>
      `TEST=TEST ./manage.py migrate`<br>
      `TEST=TEST .manage.py runserver`
