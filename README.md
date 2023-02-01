@@ -4,29 +4,29 @@
 
 ## Instruções
 
+1. faça o clone do repositório;
+2. crie o arquivo .env e configure com as variáveis como no .env.example;
+
 - Com Docker: <br>
 
-  1. faça o clone do repositório;
-  2. configure o arquivo .env com a variáveis corretamente;
   3. com o docker instalado basta usar o seguinte comando, dentro da pasta do repositório:<br>
      `docker-compose up --build`
 
 - Sem Docker: <br>
 
-  1. faça o clone do repositório;
-  2. com o python instalado, dentro da pasta do repositório, use os seguintes comandos para criar e entrar no ambiente virtual:<br>
+  3. com o python instalado, dentro da pasta do repositório, use os seguintes comandos para criar e entrar no ambiente virtual:<br>
 
-  - Linux/MacOs
+     - Linux/MacOs
 
-  `python -m venv venv`<br>
-  `source venv/bin/activate`
+       `python -m venv venv`<br>
+       `source venv/bin/activate`
 
-  - Windows
+     - Windows
 
-  `python -m venv venv`<br>
-  `.\venv\Scripts\activate`
+       `python -m venv venv`<br>
+       `.\venv\Scripts\activate`
 
-  3. depois é só instalar as dependências e rodar a api:
+  4. depois é só instalar as dependências e rodar a api:
 
   `pip install -r requirements.txt`<br>
   `TEST=TEST ./manage.py migrate`<br>
