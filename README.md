@@ -27,10 +27,9 @@
        `.\venv\Scripts\activate`
 
   4. depois é só instalar as dependências e rodar a api:
-
-  `pip install -r requirements.txt`<br>
-  `TEST=TEST ./manage.py migrate`<br>
-  `TEST=TEST .manage.py runserver`
+     `pip install -r requirements.txt`<br>
+     `TEST=TEST ./manage.py migrate`<br>
+     `TEST=TEST .manage.py runserver`
 
 - Com a API rodando basta acessar a rota api/docs/ no navegador para ver a documentação.
 
