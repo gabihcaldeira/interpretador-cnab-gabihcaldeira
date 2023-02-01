@@ -9,7 +9,7 @@
 
 - Com Docker: <br>
 
-  3. com o docker instalado basta usar o seguinte comando, dentro da pasta do repositório:<br>
+  1. com o docker instalado basta usar o seguinte comando, dentro da pasta do repositório:<br>
      `docker-compose up --build`
 
 - Sem Docker: <br>
@@ -32,6 +32,7 @@
      `TEST=TEST .manage.py runserver`
 
 - Com a API rodando basta acessar a rota api/docs/ no navegador para ver a documentação.
+- Se preferir, no repositório também hà o arquivo do insomnia em formato json, com as rotas configuradas. Note que hà ambiente de docker e para sqlite3.
 
 ## Rotas
 
