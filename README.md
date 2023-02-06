@@ -42,10 +42,10 @@
 | Rotas                    | Descrição                                | Autenticação       |
 | ------------------------ | ---------------------------------------- | ------------------ |
 | api/users/               | criação de usuário                       | :x:                |
-| api/users/               | listagem de usuário                      | :heavy_check_mark: |
-| api/users/usuário_id/    | atualização e deleção de usuário         | :heavy_check_mark: |
-| api/parser/              | upload de arquivo cnab                   | :heavy_check_mark: |
-| api/transactions/        | listagem das transações do usuário       | :heavy_check_mark: |
-| api/stores/transactions/ | listagem dos saldos das lojas do usuário | :heavy_check_mark: |
-| api/transaction/types/   | listagem dos tipos de transação          | :heavy_check_mark: |
+| api/users/               | listagem de usuário                      | :white_check_mark: |
+| api/users/usuário_id/    | atualização e deleção de usuário         | :white_check_mark: |
+| api/parser/              | upload de arquivo cnab                   | :white_check_mark: |
+| api/transactions/        | listagem das transações do usuário       | :white_check_mark: |
+| api/stores/transactions/ | listagem dos saldos das lojas do usuário | :white_check_mark: |
+| api/transaction/types/   | listagem dos tipos de transação          | :white_check_mark: |
 | api/docs/                | documentação da api                      | :x:                |
