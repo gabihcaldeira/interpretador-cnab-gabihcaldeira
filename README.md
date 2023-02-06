@@ -1,6 +1,10 @@
 # CNAB_Parser
 
-- API de interpretação de arquivos CNAB.
+- API de interpretação de arquivos CNAB por upload.
+
+  ![Badge](https://img.shields.io/pypi/pyversions/django)
+  ![Badge](https://img.shields.io/badge/Django_REST-Framework-red)
+  ![Badge](https://img.shields.io/badge/Simple_JWT-Framework-blue)
 
 ## Instruções
 
